@@ -14,24 +14,24 @@ public class TaxFunction {
 	 * 
 	 */
 	
-	// long parameter list
-	 public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthsWorked,
-	 int deductible, boolean isMarried, int numberOfChildren) {
+	
+	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthsWorked,
+                                    int deductible, boolean isMarried, int numberOfChildren) {
 
-int totalIncome = (monthlySalary + otherMonthlyIncome) * numberOfMonthsWorked;
-int childDeductible = Math.min(numberOfChildren, CHILD_DEDUCTIBLE_LIMIT) * CHILD_DEDUCTIBLE;
+        int totalIncome = (monthlySalary + otherMonthlyIncome) * numberOfMonthsWorked;
+        int childDeductible = Math.min(numberOfChildren, CHILD_DEDUCTIBLE_LIMIT) * CHILD_DEDUCTIBLE;
 
-int taxDeductible = isMarried ? MARRIED_DEDUCTIBLE : SINGLE_DEDUCTIBLE;
+        int taxDeductible = isMarried ? MARRIED_DEDUCTIBLE : SINGLE_DEDUCTIBLE;
 
-int taxableIncome = totalIncome - deductible - taxDeductible - childDeductible;
+        int taxableIncome = totalIncome - deductible - taxDeductible - childDeductible;
 
-if (taxableIncome < 0) {
-return 0;
-}
+        if (taxableIncome < 0) {
+            return 0;
+        }
 
-int tax = (int) Math.round(taxableIncome * TAX_RATE_PERCENTAGE / 100.0);
+        int tax = (int) Math.round(taxableIncome * TAX_RATE_PERCENTAGE / 100.0);
 
-return tax;
-}
+        return tax;
+    }
 	
 }
