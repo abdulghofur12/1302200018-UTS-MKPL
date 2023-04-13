@@ -14,31 +14,24 @@ public class TaxFunction {
 	 * 
 	 */
 	
-	
-	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
-		
-		int tax = 0;
-		
-		if (numberOfMonthWorking > 12) {
-			System.err.println("More than 12 month working per year");
-		}
-		
-		if (numberOfChildren > 3) {
-			numberOfChildren = 3;
-		}
-		
-		if (isMarried) {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - (54000000 + 4500000 + (numberOfChildren * 1500000))));
-		}else {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - 54000000));
-		}
-		
-		if (tax < 0) {
-			return 0;
-		}else {
-			return tax;
-		}
-			 
-	}
+	// long parameter list
+	 public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthsWorked,
+	 int deductible, boolean isMarried, int numberOfChildren) {
+
+int totalIncome = (monthlySalary + otherMonthlyIncome) * numberOfMonthsWorked;
+int childDeductible = Math.min(numberOfChildren, CHILD_DEDUCTIBLE_LIMIT) * CHILD_DEDUCTIBLE;
+
+int taxDeductible = isMarried ? MARRIED_DEDUCTIBLE : SINGLE_DEDUCTIBLE;
+
+int taxableIncome = totalIncome - deductible - taxDeductible - childDeductible;
+
+if (taxableIncome < 0) {
+return 0;
+}
+
+int tax = (int) Math.round(taxableIncome * TAX_RATE_PERCENTAGE / 100.0);
+
+return tax;
+}
 	
 }
