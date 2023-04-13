@@ -47,7 +47,7 @@ public class Employee {
 		this.monthJoined = monthJoined;
 		this.dayJoined = dayJoined;
 		this.isForeigner = isForeigner;
-		this.gender = gender;
+		this.jeniskelamin = gender;
 		
 		childNames = new LinkedList<String>();
 		childIdNumbers = new LinkedList<String>();

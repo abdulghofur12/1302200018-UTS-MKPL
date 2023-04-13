@@ -1,6 +1,10 @@
 package lib;
 
 public class TaxFunction {
+	//primitiv obsession
+	private static final int belum_nikah = 54000000;
+	private static final int sudah_menikah = 4500000;
+	private static final int sudah_memiliki_anak = 4500000;
 
 	
 	/**
@@ -15,11 +19,11 @@ public class TaxFunction {
 	 */
 	
 	
-	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
+	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorked, int deductible, boolean isMarried, int numberOfChildren) {
 		
 		int tax = 0;
 		
-		if (numberOfMonthWorking > 12) {
+		if (numberOfMonthWorked> 12) {
 			System.err.println("More than 12 month working per year");
 		}
 		
