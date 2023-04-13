@@ -7,6 +7,11 @@ import java.util.List;
 
 public class Employee {
 
+	private enum jeniskelamin {
+		laki,
+		perempuan
+	}
+
 	private String employeeId;
 	private String firstName;
 	private String lastName;
@@ -19,7 +24,8 @@ public class Employee {
 	private int monthWorkingInYear;
 	
 	private boolean isForeigner;
-	private boolean gender; //true = Laki-laki, false = Perempuan
+	//primitiv obsession
+	private jeniskelamin gender; //true = Laki-laki, false = Perempuan
 	
 	private int monthlySalary;
 	private int otherMonthlyIncome;
